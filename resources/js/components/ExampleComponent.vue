@@ -15,6 +15,9 @@
 <script>
 import gql from "graphql-tag";
 export default {
+  mounted() {
+    //   console.log(this.$apollo.getClient())
+  },
   data() {
     return {
       categories: []
@@ -22,7 +25,7 @@ export default {
   },
   apollo: {
     categories: gql`
-      query {
+      {
         categories {
           id
           name
