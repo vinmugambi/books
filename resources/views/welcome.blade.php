@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-<div class="container text-blue-500">
+<div class="container">
     <example-component/>
 </div>
 @endsection
