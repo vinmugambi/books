@@ -1,15 +1,16 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">Example Component</div>
-
-          <div class="card-body">I'm an example component.</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ApolloQuery :query="require('../graphql/queries/Categories.gql')">
+    <!-- The result will automatically updated -->
+    <template slot-scope="{ result: { data, loading } }">
+      <!-- Some content -->
+      <div v-if="loading">Loading...</div>
+      <ul v-else>
+        <li v-for="category of data.categories" :key="category.id" class="">
+          {{ category.name }}
+        </li>
+      </ul>
+    </template>
+  </ApolloQuery>
 </template>
 
 <script>

@@ -13,6 +13,18 @@ require('laravel-mix-purgecss');
  | file for the application as well as bundling up all the JS files.
  |
  */
+mix.webpackConfig({
+   module: {
+       rules: [
+           {
+               test: /\.(graphql|gql)$/,
+               exclude: /node_modules/,
+               loader: 'graphql-tag/loader'
+           }
+       ]
+   }
+});
+
 
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
