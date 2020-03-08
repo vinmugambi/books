@@ -61,7 +61,7 @@ type Mutation {
 
     updateBook(
         id: ID! @rules(apply: ["required"])
-        input: createBookInput @spread
+        input: updateBookInput @spread
     ): Book @update
 
     deleteBook(id: ID! @rules(apply: ["required"])): Book @delete
@@ -76,6 +76,16 @@ input createBookInput {
     featured: Boolean
     category: CreateCategoryRelation
 }
+input updateBookInput {
+    title: String
+    author: String
+    image: String
+    link: String
+    description: String
+    featured: Boolean
+    category: CreateCategoryRelation
+}
+
 input CreateCategoryRelation {
     connect: ID
 }
