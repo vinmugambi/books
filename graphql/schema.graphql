@@ -44,6 +44,7 @@ type Category {
 }
 
 type Mutation {
+    # Category mutations
     createCategory(
         name: String @rules(apply: ["required", "unique:categories,name"])
     ): Category @create
@@ -54,4 +55,27 @@ type Mutation {
     ): Category @update
 
     deleteCategory(id: ID! @rules(apply: ["required"])): Category @delete
+
+    # Book mutations
+    createBook(input: createBookInput @spread): Book @create
+
+    updateBook(
+        id: ID! @rules(apply: ["required"])
+        input: createBookInput @spread
+    ): Book @update
+
+    deleteBook(id: ID! @rules(apply: ["required"])): Book @delete
+}
+
+input createBookInput {
+    title: String! @rules(apply: ["required"])
+    author: String! @rules(apply: ["required"])
+    image: String
+    link: String
+    description: String
+    featured: Boolean
+    category: CreateCategoryRelation
+}
+input CreateCategoryRelation {
+    connect: ID
 }
