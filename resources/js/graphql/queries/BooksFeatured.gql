@@ -1,0 +1,9 @@
+ {
+  featuredBooks(featured: false){
+    title
+    id
+    image
+    author
+    featured
+  }
+}
