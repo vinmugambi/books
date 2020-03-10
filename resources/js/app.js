@@ -41,7 +41,8 @@ const apolloProvider = new VueApollo({
 
 const routes = [
     { path: "/", component: require("./components/Home.vue").default },
-    { path: "/book/:id", component: require("./components/Book.vue").default }
+    { path: "/books/add", component: require("./components/AddBook.vue").default },
+    { path: "/books/:id", component: require("./components/Book.vue").default },
 ];
 
 const router = new VueRouter({

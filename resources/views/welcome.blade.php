@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     {{-- <example-component/> --}}
-    <router-link to="/book/1" class="block text-white">See book 1</router-link>
+    <router-link to="/books/create" class="block text-white bg-blue-500">New book +</router-link>
     <router-view></router-view>
 </div>
 @endsection
