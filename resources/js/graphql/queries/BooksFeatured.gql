@@ -1,5 +1,5 @@
  {
-  featuredBooks(featured: false){
+  featuredBooks(featured: true){
     title
     id
     image

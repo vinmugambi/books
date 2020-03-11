@@ -18,7 +18,7 @@
       </template>
     </ApolloQuery>
     <!-- All books -->
-    <div v-if="selectedCategory==='all'">
+    <div v-if="selectedCategory === 'all'">
       <ApolloQuery :query="query">
         <template slot-scope="{ result: { data, loading },isLoading }">
           <div v-if="isLoading">Loading...</div>
@@ -36,7 +36,7 @@
       </ApolloQuery>
     </div>
     <!-- Featured books -->
-    <div v-if="selectedCategory==='featured'">
+    <div v-else-if="selectedCategory==='featured'">
       <ApolloQuery :query="query">
         <template slot-scope="{ result: { data, loading },isLoading }">
           <div v-if="isLoading">Loading...</div>
@@ -55,7 +55,7 @@
     </div>
     <!-- Books in the selected category -->
     <div v-else>
-      <ApolloQuery :query="categoryQuery" :variables="{id: selectedCategory}">
+      <ApolloQuery :query="query" :variables="{id: selectedCategory}">
         <template slot-scope="{ result: { data, loading },isLoading }">
           <div v-if="isLoading">Loading...</div>
           <div v-else>

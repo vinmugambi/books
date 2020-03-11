@@ -1,0 +1,21 @@
+mutation($input: createBookInput!) {
+    createBook(input: $input) {
+        id
+        title
+        author
+        link
+        category {
+            name
+        }
+    }
+}
+
+# {
+#       author: "Mugambi"
+#       category: { connect: 6 }
+#       description: "At its simplest, GraphQL is about asking for specific fields on objects. Let's start by looking at a very simple query and the result we get when we run it:"
+#       featured: true
+#       image: "https://lighthouse-php.com/logo.svg"
+#       link: "https://amazon.ca"
+#       title: "Newest Book"
+#     }
