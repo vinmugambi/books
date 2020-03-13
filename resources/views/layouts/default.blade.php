@@ -14,10 +14,20 @@
 </head>
 
 <body>
+    <!-- navbar -->
+    <nav id="nav" class="bg-purple-700 text-white">
+        <div class="container mx-auto flex items-center justify-between py-4">
+            <div class="logo flex">
+                <img src="/img/logo.svg" alt="logo">
+            </div>
+            <div class="nav-links">
+                <a class="mr-2" href="/">Home</a> |
+                <a class="ml-2" href="/about">About</a>
+            </div>
+        </div>
+    </nav>
     <!-- content -->
-    <main id="app" class="py-4">
-        @yield('content')
-    </main>
+    @yield('content')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
