@@ -1,24 +1,49 @@
 <template>
-  <div>
-    <ApolloQuery
-      :query="require('../graphql/queries/Book.gql')"
-      :variables="{id: $route.params.id}"
-    >
-      <template slot-scope="{ result: { data, loading },isLoading }">
+  <div class="book container">
+    <ApolloQuery :query="require('../graphql/queries/Book.gql')" :variables="{ id: $route.params.id}">
+      <template slot-scope="{ result: { data, loading }, isLoading }">
         <div v-if="isLoading">Loading...</div>
-        <div v-else-if="data">
-          <div>{{data.book.title}}</div>
-          <div>{{data.book.author}}</div>
-          <img :src="data.book.image" :alt="'cover for '+ data.book.title" />
-          <div class="mt-4">
-            <router-link
-              :to="`/books/${data.book.id}/edit`"
-              class="bg-green-700 rounded p-2 text-white"
-            >Edit book</router-link>
-            <a href="#" class="bg-red-700 rounded p-2 text-white">Delete Book</a>
+        <div v-else class="flex mt-16 flex-col lg:flex-row">
+          <div>
+            <img :src="data.book.image" alt="book cover">
+          </div>
+
+          <div class="w-full lg:w-2/3 ml-0 mt-8 lg:mt-0 lg:ml-16">
+            <div class="text-4xl font-bold">{{ data.book.title }}</div>
+            <div class="text-2xl text-grey-darkest mb-8">{{ data.book.author }}</div>
+            <div class="text-lg text-grey-darkest leading-normal">{{ data.book.description }}</div>
+            <div class="my-12">
+              <a :href="data.book.link" target="_blank" class="border border-purple-dark border-solid rounded text-purple-dark px-4 py-4 hover:bg-purple hover:text-white">View Link</a>
+            </div>
+            <router-link :to="`/books/${data.book.id}/edit`" href="#" class="">Edit</router-link>
+            &middot;
+            <a href="#" class="" @click.prevent="deleteBook">Delete</a>
+
+          </div>
+          <div>
           </div>
         </div>
       </template>
     </ApolloQuery>
   </div>
 </template>
+<script>
+import deleteBookMutation from "../graphql/mutations/DeleteBook.gql";
+export default {
+  methods: {
+    deleteBook() {
+      let bookId = this.$route.params.id;
+
+      this.$apollo
+        .mutate({
+          mutation: deleteBookMutation,
+          variables: {
+            id: bookId
+          }
+        })
+        .then(() => this.$router.push("/"))
+        .catch(error => console.error(error));
+    }
+  }
+};
+</script>
