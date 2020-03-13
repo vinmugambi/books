@@ -1,0 +1,11 @@
+mutation($id: ID!, $input: updateBookInput!) {
+    updateBook(id: $id, input: $input) {
+        id
+        title
+        author
+        link
+        category {
+            name
+        }
+    }
+}
