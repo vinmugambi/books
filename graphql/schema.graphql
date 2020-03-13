@@ -68,7 +68,7 @@ type Mutation {
 }
 
 input createBookInput {
-    title: String! @rules(apply: ["required","unique:books,title"])
+    title: String! @rules(apply: ["required"])
     author: String! @rules(apply: ["required"])
     image: String
     link: String
@@ -77,7 +77,7 @@ input createBookInput {
     category: CreateCategoryRelation
 }
 input updateBookInput {
-    title: String @rules(apply: ["unique:books,title"])
+    title: String 
     author: String
     image: String
     link: String
