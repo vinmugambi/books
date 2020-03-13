@@ -1,6 +1,6 @@
 <template>
   <div class="create container mt-12">
-    <h1 class="mb-4">Create Book</h1>
+    <h1 class="mb-4 text-3xl">Create Book</h1>
     <form action="#" method="POST" @submit.prevent="addBook">
       <div class="form-group">
         <label class="font-bold mb-2" for="title">Title</label>
