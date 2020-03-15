@@ -27,7 +27,7 @@ Vue.use(VueApollo);
 
 const apolloClient = new ApolloClient({
     // You should use an absolute URL here
-    uri: "http://127.0.0.1:8000/graphql"
+    uri: "http://127.0.0.1/graphql"
 });
 
 const apolloProvider = new VueApollo({
