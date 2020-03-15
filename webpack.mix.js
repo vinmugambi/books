@@ -33,6 +33,6 @@ mix.js('resources/js/app.js', 'public/js')
       processCssUrls: false,
       postCss: [tailwindcss(tailwindConfig)]
    })
-   // .purgeCss({
-   //    enabled: true
-   // });
+   .purgeCss({
+      enabled: true
+   });

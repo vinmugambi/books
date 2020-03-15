@@ -16,7 +16,7 @@
 <body>
     <!-- navbar -->
     <nav id="nav" class="bg-purple-700 text-white">
-        <div class="container mx-auto flex items-center justify-between py-4">
+        <div class="container flex items-center justify-between py-4">
             <div class="logo flex">
                 <img src="/img/logo.svg" alt="logo">
             </div>
